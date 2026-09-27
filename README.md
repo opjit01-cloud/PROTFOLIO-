@@ -1,41 +1,35 @@
-# Jeet / Vishu — The Maker’s Book
+# Jeet / Vishu — Ideas, cooked with care
 
-A portfolio experienced as one continuous, scroll-driven 3D book. A real-time Three.js scene follows the same volume from cover to colophon: the camera travels around the book, the hardcover opens and closes, and subdivided, printed leaves bend and turn as the reader scrolls in either direction.
+A complete portfolio with a persistent, scroll-reactive Three.js book as its background. The book opens, turns printed pages, and moves through a warm studio while the full website stays in front: introduction, creative approach, selected projects, process note, and contact.
 
-## Run locally
+## Preview
 
-This is a static site made of JavaScript modules and locally vendored Three.js files. Serve the `outputs` directory over HTTP instead of opening `index.html` as a `file://` URL:
+Open `index.html` directly, or serve this directory over HTTP:
 
 ```sh
-cd outputs
 python -m http.server 8000
 ```
 
-Then open <http://localhost:8000>.
+Then visit <http://localhost:8000>.
 
-## Experience
+## Interactions
 
-- Scroll forward or backward through a single 3D book and its page turns.
-- Move the pointer for restrained camera parallax. Dust, lighting, and the room respond along the scroll path.
-- Choose the light or dark studio palette in the masthead.
-- Select the printed portfolio leaves to open the live projects.
-- Use the persistent contact link at the final chapter to start a WhatsApp chat; the reading view includes a phone link.
-- Reduced-motion preferences and WebGL failures switch to an accessible HTML reading view with all story text, project links, and contact details.
+- Scroll the full portfolio; the book and camera follow the story with responsive, damped motion.
+- Move the pointer for gentle camera parallax.
+- Use the top navigation or mobile menu to jump between chapters.
+- Select any project cover to open its live site.
+- Hold the process note to fold it; Space or Enter works when focused.
+- Switch the studio between light and dark themes.
+- Call or message Jeet at **+91 96928 12765**.
+- Reduced-motion settings keep the scene still at rest and preserve the full readable website. If WebGL is unavailable, the site remains usable without the canvas.
 
-## Portfolio links
+## Work
 
 - [New Radha Swami](https://newradhaswami.pages.dev/)
 - [India Gym](https://indiagym.vercel.app/)
 - [Croxy](https://croxy.pages.dev/)
-- [WhatsApp](https://wa.me/919692812765) · +91 96928 12765
+- [WhatsApp](https://wa.me/919692812765) · [Call](tel:+919692812765)
 
-## Project files
+## Implementation
 
-- `index.html` — document shell, navigation, contact, and accessible fallback
-- `styles.css` — themes, loader, interface, responsive layout, and reduced-motion styles
-- `src/main.js` — scene setup, lifecycle, rendering, and scroll orchestration
-- `src/book/` — book geometry, curved page turns, camera, lighting, quality controls, and project hit targets
-- `src/content/PageArtwork.js` — original canvas-generated page and cover artwork
-- `vendor/` — Three.js 0.186.1 ES modules and the upstream MIT license
-
-Three.js is vendored locally; no runtime package install is needed. The page artwork is original typographic and vector illustration, not screenshots of the linked sites. Google Fonts are an optional stylesheet request; system font fallbacks are provided.
+The page uses `app.bundle.js`, a classic script bundle that also works from a local `file://` preview. To rebuild it after editing source, run `npm install` and `npm run build` in this folder. The source modules live in `src/book/` and `src/content/`; Three.js 0.186.1 and its MIT license are included under `vendor/`. Original cover and page artwork is drawn in `src/content/PageArtwork.js`.

@@ -1,1 +1,10 @@
-{"private":true,"type":"module"}
+{
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "scripts": {
+    "build": "esbuild src/main.js --bundle --format=iife --minify --legal-comments=inline --outfile=app.bundle.js"
+  }
+}

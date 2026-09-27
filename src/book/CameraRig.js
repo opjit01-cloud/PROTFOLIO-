@@ -17,7 +17,7 @@ export class CameraRig{
   setPointer(x,y){this.mouseX=x;this.mouseY=y}
   update(progress,delta,time,idle=true){
     this.positionPath.getPoint(progress,this.position);this.targetPath.getPoint(progress,this.lookTarget);
-    const damping=1-Math.exp(-Math.min(delta,.05)*7.5);
+    const damping=1-Math.exp(-Math.min(delta,.05)*12);
     if(idle){this.idle+=delta;this.position.x+=Math.sin(time*.22)*.012;this.position.z+=Math.cos(time*.19)*.009}else this.idle=0;
     this.camera.position.lerp(this.position,damping);
     this.lookTarget.x+=this.mouseX*.075;this.lookTarget.z+=this.mouseY*.055;
