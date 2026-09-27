@@ -1,38 +1,41 @@
-# Jeet / Vishu — Ideas, cooked with care
+# Jeet / Vishu — The Maker’s Book
 
-A portfolio told as one continuous, scrollable 3D book. The camera travels down a shared spine while the pages turn through the story, selected work, process note, and contact chapter.
-
-## Open the portfolio
-
-- [New Radha Swami](https://newradhaswami.pages.dev/)
-- [India Gym](https://indiagym.vercel.app/)
-- [Croxy](https://croxy.pages.dev/)
-- Chat on [WhatsApp](https://wa.me/919692812765) or call **+91 96928 12765**.
-
-## Interactions
-
-- Scroll forward or backward to move the camera through the single book and turn its pages.
-- Move the pointer for subtle camera parallax; the 3D pages have a quiet idle flutter while the tab is visible.
-- Hold the process note to fold it. Use Space or Enter when the note is focused.
-- Switch between dark and light themes from the top navigation.
-- Use the three project covers to open each live website in a new tab.
-
-The page uses native scrolling and a small, dependency-free WebGL renderer. The story and project links are regular HTML, so they remain readable when WebGL is unavailable. Motion is reduced when the operating system requests reduced motion. The only external runtime request is Google Fonts; system font fallbacks are included.
+A portfolio experienced as one continuous, scroll-driven 3D book. A real-time Three.js scene follows the same volume from cover to colophon: the camera travels around the book, the hardcover opens and closes, and subdivided, printed leaves bend and turn as the reader scrolls in either direction.
 
 ## Run locally
 
-Open `index.html` in a modern browser. For a local HTTP server, run one of these from the project directory:
+This is a static site made of JavaScript modules and locally vendored Three.js files. Serve the `outputs` directory over HTTP instead of opening `index.html` as a `file://` URL:
 
 ```sh
+cd outputs
 python -m http.server 8000
 ```
 
 Then open <http://localhost:8000>.
 
-## Files
+## Experience
 
-- `index.html` — story chapters, project links, and contact actions
-- `styles.css` — responsive layout, themes, and ambient motion
-- `app.js` — scroll conductor, WebGL book, navigation, and paper interaction
+- Scroll forward or backward through a single 3D book and its page turns.
+- Move the pointer for restrained camera parallax. Dust, lighting, and the room respond along the scroll path.
+- Choose the light or dark studio palette in the masthead.
+- Select the printed portfolio leaves to open the live projects.
+- Use the persistent contact link at the final chapter to start a WhatsApp chat; the reading view includes a phone link.
+- Reduced-motion preferences and WebGL failures switch to an accessible HTML reading view with all story text, project links, and contact details.
 
-The project artwork is original CSS illustration; it is not a screenshot of the linked websites. No third-party component package or paid ReactBits code is bundled.
+## Portfolio links
+
+- [New Radha Swami](https://newradhaswami.pages.dev/)
+- [India Gym](https://indiagym.vercel.app/)
+- [Croxy](https://croxy.pages.dev/)
+- [WhatsApp](https://wa.me/919692812765) · +91 96928 12765
+
+## Project files
+
+- `index.html` — document shell, navigation, contact, and accessible fallback
+- `styles.css` — themes, loader, interface, responsive layout, and reduced-motion styles
+- `src/main.js` — scene setup, lifecycle, rendering, and scroll orchestration
+- `src/book/` — book geometry, curved page turns, camera, lighting, quality controls, and project hit targets
+- `src/content/PageArtwork.js` — original canvas-generated page and cover artwork
+- `vendor/` — Three.js 0.186.1 ES modules and the upstream MIT license
+
+Three.js is vendored locally; no runtime package install is needed. The page artwork is original typographic and vector illustration, not screenshots of the linked sites. Google Fonts are an optional stylesheet request; system font fallbacks are provided.
